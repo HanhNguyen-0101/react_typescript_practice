@@ -3,6 +3,7 @@ import goalsImg from './assets/react.svg';
 import Header from './components/Header';
 import { useState } from 'react';
 import CourseGoalList from './components/CourseGoalList';
+import NewGoal from './components/NewGoal';
 
 export type CourseGoal = {
   id: string,
@@ -27,13 +28,19 @@ function App() {
     })
   }
 
+  function handDeleteGoal(id: string) {
+    setCourses(prevCourse => {
+      return prevCourse.filter(course => course.id !== id);
+    });
+  }
+
   return (
     <main>
       <Header img={{ src: goalsImg, alt: 'A list of goal' }}>
         <h1>Your Course Goals</h1>
       </Header>
-      <button onClick={() => handleAdd('a', 'b')}>Add</button>
-      <CourseGoalList courses={courses} />
+      <NewGoal onSubmit={handleAdd} />
+      <CourseGoalList courses={courses} onDeleteGoal={handDeleteGoal} />
     </main>
   )
 }

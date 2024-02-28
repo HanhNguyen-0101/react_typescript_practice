@@ -7,8 +7,12 @@ import { type CourseGoal as CGoal } from "../App";
 //     children: ReactNode;
 // }
 
+type CGoalProps = {
+    goal: CGoal,
+    onDelete: (id: string) => void
+}
 // using with PropsWithChildren
-type CourseGoalProps = PropsWithChildren<CGoal>;
+type CourseGoalProps = PropsWithChildren<CGoalProps>;
 
 // function CourseGoal({title, desc, children}: CourseGoalProps) {
 //     return (
@@ -23,7 +27,8 @@ type CourseGoalProps = PropsWithChildren<CGoal>;
 //     );
 // }
 
-const CourseGoal: FC<CourseGoalProps> = ({title, desc, children}) => {
+const CourseGoal: FC<CourseGoalProps> = ({ goal, children, onDelete }) => {
+    const { id, title, desc } = goal;
     return (
         <article>
             <div>
@@ -31,7 +36,7 @@ const CourseGoal: FC<CourseGoalProps> = ({title, desc, children}) => {
                 <p>{desc}</p>
                 {children}
             </div>
-            <button>delete</button>
+            <button onClick={() => onDelete(id)}>delete</button>
         </article>
     );
 };
