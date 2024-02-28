@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren, ReactNode } from "react";
+import { type CourseGoal as CGoal } from "../App";
 
 // interface CourseGoalProps {
 //     title: string;
@@ -7,7 +8,7 @@ import { FC, PropsWithChildren, ReactNode } from "react";
 // }
 
 // using with PropsWithChildren
-type CourseGoalProps = PropsWithChildren<{title: string, desc: string}>;
+type CourseGoalProps = PropsWithChildren<CGoal>;
 
 // function CourseGoal({title, desc, children}: CourseGoalProps) {
 //     return (
