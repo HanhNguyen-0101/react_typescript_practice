@@ -13,7 +13,7 @@ const InfoBox: FC<InfoBoxProps> = (props) => {
         </aside>
     }
     return (
-        <aside className={`infobox infobox-${props.severity}`}>
+        <aside className={`infobox infobox-warning warning--${props.severity}`}>
             <h2>Warning</h2>
             <p>{children}</p>
         </aside>
