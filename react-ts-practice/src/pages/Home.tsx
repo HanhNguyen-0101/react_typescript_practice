@@ -5,7 +5,6 @@ import certificateImg from '../assets/certificate.jpg';
 export default function HomePage() {
   return (
     <main id="home-page">
-      <h2>Our Mission: Your Success</h2>
       <section>
         <img src={studentsImg} alt="A group of students" />
         <div>
